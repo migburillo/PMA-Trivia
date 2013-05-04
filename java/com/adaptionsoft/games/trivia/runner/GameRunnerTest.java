@@ -42,13 +42,13 @@ public class GameRunnerTest {
 	@Test
 	public void testMain() {
 		GameRunner.run(game, rand);	
-		assertEquals(1763398543L, checker.checksum.getValue());
+		assertEquals(590124755L, checker.checksum.getValue());
 		
 		GameRunner.run(game, rand);
-		assertEquals(2961284199L, checker.checksum.getValue());
+		assertEquals(220049483L, checker.checksum.getValue());
 		
 		GameRunner.run(game, rand);
-		assertEquals(3062906570L, checker.checksum.getValue());
+		assertEquals(2318374383L, checker.checksum.getValue());
 	}
 
 }
