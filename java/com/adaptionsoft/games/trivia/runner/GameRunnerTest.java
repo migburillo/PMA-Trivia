@@ -57,7 +57,7 @@ public class GameRunnerTest {
 		game.add("Mike");
 		game.add("Mary");
 		GameRunner.run(game, rand);
-		assertEquals(0L, checker.checksum.getValue());
+		assertEquals(2937927022L, checker.checksum.getValue());
 	}
 }
 

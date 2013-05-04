@@ -50,7 +50,7 @@ public class Game {
 	}
 	
 	public int howManyPlayers() {
-		return players.size();
+		return players.size()-1;
 	}
 
 	public void roll(int roll) {
