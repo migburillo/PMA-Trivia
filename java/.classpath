@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Program Files/J2EE project/spring-framework-1.1.3/lib/junit/junit.jar"/>
+	<classpathentry kind="lib" path="/home/miguel/workspace/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/home/miguel/workspace/hamcrest-all-1.3.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

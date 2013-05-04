@@ -18,6 +18,11 @@ public class GameRunner {
 		
 		Random rand = new Random();
 	
+		run(aGame, rand);
+		
+	}
+
+	static void run(Game aGame, Random rand) {
 		do {
 			
 			aGame.roll(rand.nextInt(5) + 1);
@@ -31,6 +36,5 @@ public class GameRunner {
 			
 			
 		} while (notAWinner);
-		
 	}
 }
