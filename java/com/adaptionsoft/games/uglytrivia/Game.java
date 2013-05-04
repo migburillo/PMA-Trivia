@@ -115,28 +115,12 @@ public class Game {
 	}
 
 	public boolean wasCorrectlyAnswered() {
-		if (inPenaltyBox[currentPlayer]){
-			if (isGettingOutOfPenaltyBox) {
-				System.out.println("Answer was correct!!!!");
-				purses[currentPlayer]++;
-				System.out.println(players.get(currentPlayer) 
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
-				
-				boolean winner = didPlayerWin();
-				nextPlayer();
-				
-				return winner;
-			} else {
-				nextPlayer();
-				return true;
-			}
-			
-			
-			
-		} else {
-		
+		boolean continuePlaying ;
+		if (inPenaltyBox[currentPlayer] && 
+			!isGettingOutOfPenaltyBox) {
+			continuePlaying = true;
+		}	
+		else {
 			System.out.println("Answer was correct!!!!");
 			purses[currentPlayer]++;
 			System.out.println(players.get(currentPlayer) 
@@ -144,11 +128,10 @@ public class Game {
 					+ purses[currentPlayer]
 					+ " Gold Coins.");
 			
-			boolean winner = didPlayerWin();
-			nextPlayer();
-			
-			return winner;
+			continuePlaying = continuePlaying();
 		}
+		nextPlayer();
+		return continuePlaying;
 	}
 
 	private void nextPlayer() {
@@ -165,10 +148,7 @@ public class Game {
 		return true;
 	}
 
-	/**
-	 * Tells if the last player won.
-	 */
-	private boolean didPlayerWin() {
+	private boolean continuePlaying() {
 		return !(purses[currentPlayer] == 6);
 	}
 }
