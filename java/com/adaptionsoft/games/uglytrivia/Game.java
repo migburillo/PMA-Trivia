@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-    ArrayList players = new ArrayList();
+    ArrayList<String> players = new ArrayList<String>();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
@@ -31,9 +31,7 @@ public class Game {
 		return "Rock Question " + index;
 	}
 
-	public boolean add(String playerName) {
-		
-		
+	public boolean add(String playerName) {				
 	    players.add(playerName);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
@@ -53,6 +51,10 @@ public class Game {
 		return players.size()-1;
 	}
 
+	public ArrayList<String> getPlayers() {
+		return players;
+	}
+	
 	public void roll(int roll) {
 		System.out.println(players.get(currentPlayer) + " is the current player");
 		System.out.println("They have rolled a " + roll);		
