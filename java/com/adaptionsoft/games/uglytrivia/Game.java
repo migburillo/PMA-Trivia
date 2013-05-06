@@ -12,23 +12,14 @@ public class Game {
     boolean[] inPenaltyBox  = new boolean[6];
     int[] highscores= new int[6];
 
-    String[] questionTypes = {"Pop", "Science", "Sports", "Rock"};
-    Map<String, LinkedList> questions = new HashMap<String, LinkedList>();
+    Question questions;
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
     
     public  Game(){
-		for(String type : questionTypes) {
-			questions.put(type, new LinkedList<String>());
-		} 	
-    	for (int i = 0; i < 50; i++) {
-    		for(String type : questionTypes) {
-    			LinkedList<String> list = questions.get(type);
-    			list.addLast(type + " Question " + i);
-    			questions.put(type, list);
-    		}
-    	}
+    	String[] types = {"Pop", "Science", "Sports", "Rock"};
+    	questions = new Question(types);
     }
 
 	public boolean add(String playerName) {				
@@ -80,8 +71,8 @@ public class Game {
 
 	private void askQuestion() {
 		System.out.println(
-				questions.get(currentCategory()).removeFirst()
-				);	
+				questions.get(currentCategory())
+				);
 	}
 	
 	// randomly return a category
