@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
@@ -67,6 +68,17 @@ public class GameRunnerTest {
 		assertTrue(game.getPlayers().contains("Pat"));
 		assertTrue(game.getPlayers().contains("Sue"));
 	}
+	
+	@Test
+	public void testRemovePlayers() {
+		game.remove("Chet");
+		ArrayList<String> players = game.getPlayers();
+		assertEquals(2, players.size());
+		assertFalse(players.contains("Chet"));
+		assertTrue(players.contains("Pat"));
+		assertTrue(players.contains("Sue"));
+	}
+	
 }
 
 
