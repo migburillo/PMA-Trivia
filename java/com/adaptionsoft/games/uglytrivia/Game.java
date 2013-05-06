@@ -18,8 +18,11 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
     
     public  Game(){
-    	String[] types = {"Pop", "Science", "Sports", "Rock"};
-    	questions = new Question(types);
+    	questions = new Question();
+    	questions.createQuestions("Pop", new int[] {0,4,8});
+    	questions.createQuestions("Science", new int[] {1,5,9});
+    	questions.createQuestions("Sports", new int[] {2,6,10});
+    	questions.createQuestions("Rock", new int[] {});
     }
 
 	public boolean add(String playerName) {				
@@ -71,22 +74,13 @@ public class Game {
 
 	private void askQuestion() {
 		System.out.println(
-				questions.get(currentCategory())
+				questions.getQuestion(currentCategory())
 				);
 	}
 	
 	// randomly return a category
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
+		return questions.getCategoryByNumber(places[currentPlayer]);
 	}
 
 	public boolean wasCorrectlyAnswered() {
