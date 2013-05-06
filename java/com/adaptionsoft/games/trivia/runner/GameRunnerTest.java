@@ -59,6 +59,14 @@ public class GameRunnerTest {
 		GameRunner.run(game, rand);
 		assertEquals(2937927022L, checker.checksum.getValue());
 	}
+	
+	@Test
+	public void testGetPlayers() {				
+		assertEquals(3, game.getPlayers().size());
+		assertTrue(game.getPlayers().contains("Chet"));
+		assertTrue(game.getPlayers().contains("Pat"));
+		assertTrue(game.getPlayers().contains("Sue"));
+	}
 }
 
 
